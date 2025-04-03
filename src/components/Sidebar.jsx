@@ -8,7 +8,7 @@ import { links } from "../data/dummy";
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu, screenSize, setScreenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, screenSize, setScreenSize, currentColor } = useStateContext();
 
   const handleCloseSideBar = () => {
     if (activeMenu && screenSize <= 900) {
@@ -40,12 +40,12 @@ const Sidebar = () => {
               className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900'>
               <SiShopware /> <span>Shoppy</span>
             </Link>
-            <TooltipComponent content="Menu" position='BottomCenter'>
+            {/* <TooltipComponent content="Menu" position='BottomCenter'>
               <button type='button' onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
                 className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 hidden md:block'>
-                <MdOutlineCancel />
+                <MdOutlineCancel /> 
               </button>
-            </TooltipComponent>
+            </TooltipComponent> */}
           </div>
           <div className='mt-10'>
             {links.map((item) => (
@@ -54,7 +54,14 @@ const Sidebar = () => {
                   {item.title}
                 </p>
                 {item.links.map((Link) => (
-                  <NavLink to={`/${Link.name}`} onClick={handleCloseSideBar} className={({ isActive }) => isActive ? activeLink : normalLink}>
+                  <NavLink 
+                    to={`/${Link.name}`} 
+                    onClick={handleCloseSideBar} 
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor: ''
+                    })} 
+                    
+                    className={({ isActive }) => isActive ? activeLink : normalLink}>
                     {Link.icon}
                     <span className='capitalize'>
                       {Link.name}
