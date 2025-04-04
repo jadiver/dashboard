@@ -44,11 +44,11 @@ const Navbar = () => {
       <NavButton title="Menu" customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} color={currentColor} icon={<AiOutlineMenu />} />
 
       <div className='flex'>
-        <NavButton title="Cart" customFunc={() => handleClick("cart")} color={currentColor} icon={<FiShoppingCart />} />
-        <NavButton title="Chat" dotColor="#03C9D7" customFunc={() => handleClick('chat')} color={currentColor} icon={<BsChatLeft />} />
-        <NavButton title="Notifications" dotColor="#03C9D7" customFunc={() => handleClick("notification")} color={currentColor} icon={<RiNotification3Line />} />
+        <NavButton title="Cart" color={currentColor} icon={<FiShoppingCart />} />
+        <NavButton title="Chat" dotColor="#03C9D7" color={currentColor} icon={<BsChatLeft />} />
+        <NavButton title="Notifications" dotColor="#03C9D7" color={currentColor} icon={<RiNotification3Line />} />
         <TooltipComponent content="Profile" position='BottomCenter'>
-          <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg' onClick={() => handleClick("userProfile")}>
+          <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'>
             <img className='rounded-full w-8 h-8' src={avatar} />
             <p>
               <span className='text-gray-400 text-14'>Hi, </span>{" "}
